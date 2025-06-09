@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agriculture Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        .chatbox {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            margin: 0 auto;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 70%;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .response {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e7e7e7;
+            border-radius: 5px;
+        }
+        .error {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ffcccc;
+            border-radius: 5px;
+            color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chatbox">
+        <h2>Ask BHOOGAMINI!</h2>
+        <form method="POST">
+            <input type="text" name="user_input" placeholder="Ask about agriculture..." required>
+            <button type="submit">Ask</button>
+        </form>
+
+        {% if response %}
+            <div class="response">
+                <strong>Bot Response:</strong>
+                <p>{{ response }}</p>
+            </div>
+        {% elif error %}
+            <div class="error">
+                <strong>Error:</strong>
+                <p>{{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
